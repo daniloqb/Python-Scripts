@@ -9,7 +9,6 @@ import zipfile
 __author__ = 'user'
 
 zf = zipfile.ZipFile('/home/user/bkp_code/20150908/104307.zip')
-
 for filename in zf.namelist():
     try:
         data = zf.read(filename)
