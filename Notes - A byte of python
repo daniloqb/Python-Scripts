@@ -1,0 +1,75 @@
+*Format strings
+
+Uma maneira é utilizar uma string e dentro dela utilizar {}
+
+é possível utilizar chaves com o número correspondente da string tipo:
+{0} {1}
+No final da string, depois de fechar as aspas basta acrescentar "ponto" .format(lista de valores separados por vírgula)
+
+Ex:
+
+nome  = Danilo
+idade = 35
+
+print 'Eu sou {0} e tenho {1} anos de idade'.format(nome,idade)
+
+saída: Eu sou Danilo e tenho 35 anos de idade
+
+'' e "" são a mesma coisa.
+
+Para ter a mesma saída com concatenização utilizamos:
+
+'Eu sou '+name+ 'e tenho ' +str(idade)+ 'anos de idade'
+
++++
+str() - transforma o parametro em string.
+
+
+Formatar números floats
+
+print {0:3f}.format(1.0/3)
+
+Neste caso {0} faz referência ao primeiro valor da funcao format, contudo :3f diz que o numero sera um float e terá 03 casas decimais.
+No caso do valor o número foi colocado como 1.0 que identifica um float e não somente 1 que seria visto como um inteiro.
+
+raw_input('string:') --> recebe uma entrada da linha de comando
+
+
+range() --> cria uma sequencia
+
+range(1,10) --> [1,2,3,4,5,6,7,8,9] começa no primeiro número mas não inclui o último.
+
+range(1,10,2) --> [1,3,5,7,9] o terceiro item é o passo da incrementação
+
+
+
+for e while possuem a condição else. Else não é executado somente se o laço terminar com o break.
+
+
+** dentro de uma função para indicar uma variável global, utilizamos o identificador "global"
+
+
+For em C e em Python
+
+for(int i =0;i<5;i++){}
+
+for i in range(5):
+
+*** Funcoes
+
+def func(a,b)            --> func(a,b)
+def func(a,b=0)          --> func(a,b) ; func(a);
+def func(a,b=0,c=0)      --> func(a,c=10);
+def func(a=5,*tup,**dic) --> func(10,1,2,3,tup=10,dic=30)
+
+
+** Estruturas em Python 
+ - listas; []
+ - tuplas; ()
+ - dicionários; {}
+ - conjuntos.
+
+
+
+
+
