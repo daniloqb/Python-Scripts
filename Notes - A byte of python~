@@ -86,10 +86,10 @@ def func(a=5,*tup,**dic) --> func(10,1,2,3,tup=10,dic=30)
 *import os
 *import time
 
- 
+
 os.sep               --> retorna qual é o separador utilizado pelo sistema operacional no tratamento de arquivos e diretórios.
 os.path.exists(path) --> verifica se o diretório existe tendo como base o caminho especificado como parâmetro.
-os.mkdir(path_dir)   --> cria um novo diretório ** nao cria uma cadeia recursiva de diretorios ex: mkdir -p. Vou procurar a solucao
+os.mkdir(path_dir)   --> cria um novo diretório
 os.system(comando)   --> executa um comando do S.O.
 
 
