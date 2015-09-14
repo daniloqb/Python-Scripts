@@ -15,8 +15,13 @@ f.close()
 
 f = open('poem.txt')
 
-s = f.readline()
-
-while s:
-    print s
+while True:
     s = f.readline()
+
+    if len(s) == 0:
+        break
+
+    print s
+
+f.close()
+
