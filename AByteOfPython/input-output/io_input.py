@@ -1,7 +1,8 @@
+# encoding=utf-8
+
 __author__ = 'daniloqb'
 
 special_chars = [' ', ',', '.', ':', ';', '-', '_']
-
 
 def reverse(text):
     return text[::-1]  # usando slicing para reverter o texto ::-1
@@ -13,6 +14,7 @@ def sanitize(text):
     for index in range(len(text)):
         if text[index] not in special_chars:
             sanitized_text += text[index]
+
     return sanitized_text.lower()
 
 
