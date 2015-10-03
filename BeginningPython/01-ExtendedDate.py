@@ -35,7 +35,7 @@ while True:
         if day > 30 and month not in months_with_31_days:
             raise WrongDateException(months[month - 1] + ' has less than 31 days.')
 
-        if month == 2:
+        if month == 2:d
             if day > 29:
                 raise WrongDateException(months[month - 1] + ' has less than 30 days.')
 
