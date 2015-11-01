@@ -25,6 +25,26 @@ class Rectangule(object):
     size = property(getSize,setSize)
 
 
+class RectanguleOld(object):
+    def __init__(self):
+        self.width = 0
+        self.height = 0
+
+    def __setattr__(self, key, value):
+        if key == 'size':
+            self.width, self.height = value
+        else:
+            self.__dict__[key] = value
+
+    def __getattr__(self, item):
+        if item == 'size':
+            return self.width,self.height
+        else:
+            raise AttributeError
+
+
+
+
 
 
 r = Rectangule()
@@ -43,3 +63,15 @@ print r.getSize()
 r.size = 640,480
 
 print r.size
+
+
+
+r2 = RectanguleOld()
+
+r2.size = 320,480
+
+print r2.size
+
+r2.name = 'Danilo'
+
+print r2.name
