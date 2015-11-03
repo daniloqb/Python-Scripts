@@ -22,5 +22,14 @@ def queens(num=8,state=()):
 
 
 
-for p in queens(4):
-    print p
+def prettyprint(solution):
+    def line(pos, length=len(solution)):
+        return '.' * pos + 'X' + '.' * (length - pos - 1)
+    for pos in solution:
+        print line(pos)
+
+
+
+import random
+
+prettyprint(random.choice(list(queens(8))))
