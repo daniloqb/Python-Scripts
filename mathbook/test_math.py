@@ -14,36 +14,29 @@ def list_param():
 function = sys.argv[1]
 
 if function == 'primeFactors':
-    print primeFactors(sys.argv[2])
+    print primeFactors(int(sys.argv[2]))
 
 elif function == 'listOfPrimes':
-    print listOfPrimes(sys.argv[2])
+    print listOfPrimes(int(sys.argv[2]))
 
 elif function == 'mmc2':
     list = []
-    for p in sys.argv:
-        list.append(p)
+    for p in sys.argv[2::]:
+        list.append(int(p))
 
-    list.remove(list[0])
-    list.remove(list[0])
     print mmc2(list)
 
 elif function == 'mdc2':
     list = []
-    for p in sys.argv:
-        list.append(p)
+    for p in sys.argv[2::]:
+        list.append(int(p))
 
-    list.remove(list[0])
-    list.remove(list[0])
-    
     print mdc2(list)
 
 elif function == 'mdc':
     list = []
-    for p in sys.argv:
+    for p in sys.argv[2::]:
         list.append(p)
-    list.remove(list[0])
-    list.remove(list[0])
     res = list[0]
     list.remove(list[0])
 
@@ -54,10 +47,8 @@ elif function == 'mdc':
 
 elif function == 'mmc':
     list = []
-    for p in sys.argv:
+    for p in sys.argv[2::]:
         list.append(p)
-    list.remove(list[0])
-    list.remove(list[0])
     res = list[0]
     list.remove(list[0])
 
