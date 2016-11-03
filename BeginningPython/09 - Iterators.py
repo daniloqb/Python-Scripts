@@ -43,3 +43,7 @@ print
 r = Rannum(3)
 
 print list(r)
+
+f = Fibs()
+for i in range(1,5):
+    print f.next()

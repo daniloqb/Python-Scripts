@@ -6,7 +6,7 @@ __author__ = 'tic'
 
 
 host = ''
-port = 50001
+port = 2121
 size = 1024
 backlog = 5
 
