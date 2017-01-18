@@ -3,8 +3,8 @@ import simplejson as json
 
 __author__ = 'tic'
 
-host = 'localhost'
-port = 50001
+host = '192.168.6.143'
+port = 2121
 size = 1024
 
 d_json = {'led':'on','rgb':['255','100','50']}

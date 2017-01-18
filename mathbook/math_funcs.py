@@ -44,7 +44,10 @@ def mmc2(list):
     return mmc
 
 
-def mdc2(list):
+
+
+
+def mdc3(list):
     mdc_primeFactors = primeFactors(list[0])
     list.remove(list[0])
 
@@ -58,10 +61,28 @@ def mdc2(list):
                 numberFactors.remove(p)
         mdc_primeFactors = temp
 
-    mdc = 1
-    for number in mdc_primeFactors:
-        mdc *= number
+    mdc = reduce(lambda x,y: x*y,mdc_primeFactors) if len(mdc_primeFactors) else 1
+
     return mdc
+
+
+def test(list):
+    factors_list= map(lambda x: primeFactors(x),list)
+    print factors_list
+
+    mdc_factors = factors_list.pop()
+    for number_factors in factors_list:
+        temp = []
+        for mdc_factor in  mdc_factors:
+            if mdc_factor in number_factors:
+                temp.append(mdc_factor)
+                number_factors.remove(mdc_factor)
+        mdc_factors = temp
+
+    print mdc_factors
+
+
+
 
 
 def primeFactors(n):
@@ -170,3 +191,32 @@ def listOfPrimes(M):
     return prime_l
 
 '''
+
+
+def mdc2(list):
+    mdc_primeFactors = primeFactors(list[0])
+    list.remove(list[0])
+
+    for number in list:
+        numberFactors = []
+        temp = []
+        numberFactors = primeFactors(number)
+        for p in mdc_primeFactors:
+            if p in numberFactors:
+                temp.append(p)
+                numberFactors.remove(p)
+        mdc_primeFactors = temp
+
+    mdc = 1
+    for number in mdc_primeFactors:
+        mdc *= number
+    return mdc
+
+
+
+#test([3,6,12])
+
+
+l = [[3], [2, 3], [2, 2, 3]]
+
+print l
