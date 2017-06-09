@@ -1,0 +1,53 @@
+#!/usr/bin/python
+import random
+import pygame
+import PyParticles
+
+zoom = 1
+(width, height) = (1024, 768)
+screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption('Star formation')
+
+universe = PyParticles.Environment((width,height))
+universe.colour = (0,0,0)
+universe.addFunctions(['move','attract','combine'])
+
+def calculateRadius(mass):
+    return 0.5 * mass ** (0.5)
+
+for p in range(100):
+    particle_mass = random.randint(1,4)
+    particle_size = calculateRadius(particle_mass)
+    universe.addParticles(mass=particle_mass,size=particle_size,colour=(255,255,255))
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_UP:
+              zoom += 0.05
+            elif event.key == pygame.K_DOWN:
+              zoom -= 0.05
+    screen.fill(universe.colour)
+    universe.update()
+    
+    particles_to_remove = []
+    for p in universe.particles:
+        if 'collide_with' in p.__dict__:
+            particles_to_remove.append(p.collide_with)
+            p.size = calculateRadius(p.mass)
+            del p.__dict__['collide_with']
+
+        if p.size < 2:
+            pygame.draw.rect(screen, p.colour, (int(p.x*zoom), int(p.y*zoom), int(2*zoom), 2))
+        else:
+            pygame.draw.circle(screen, p.colour, (int(p.x*zoom), int(p.y*zoom)), int(p.size*zoom), 0)
+	    
+    
+    for p in particles_to_remove:
+        if p in universe.particles:
+            universe.particles.remove(p)
+
+    pygame.display.flip()
