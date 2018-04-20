@@ -5,8 +5,7 @@ from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import time
 
 
-hostName = ""
-hostPort = 2121
+
 
 class MyServer(BaseHTTPRequestHandler):
     def do_POST(self):
@@ -27,13 +26,25 @@ class MyServer(BaseHTTPRequestHandler):
 
         return
 
-myServer = HTTPServer((hostName,hostPort),MyServer)
-print time.asctime(), "Server Starts - %s:%s" % (hostName,hostPort)
+def run(server_class = HTTPServer, handler_class=MyServer,port=2121):
+    server_address = ('',port)
+    httpd = server_class(server_address,handler_class)
+    print time.asctime(), "Server Starts - %s:%s" % (server_address[0], server_address[1])
 
-try:
-    myServer.serve_forever()
-except KeyboardInterrupt:
-    pass
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        pass
 
-myServer.server_close()
-print time.asctime(), "Server Stops - %s:%s" %(hostName, hostPort)
+    httpd.server_close()
+    print time.asctime(), "Server Stops - %s:%s" % (server_address[0], server_address[1])
+
+
+
+if __name__ == "__main__":
+    from sys import argv
+
+    if len(argv) == 2:
+        run(port=int(argv[1]))
+    else:
+        run()
