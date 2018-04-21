@@ -16,7 +16,7 @@ s.connect((host, port))
 
 while True:
     try:
-        clock.tick(1)
+        clock.tick(30)
         s.send(str(data)+'\r\n')
         print 'sent %d' % (data)
         data += 1
